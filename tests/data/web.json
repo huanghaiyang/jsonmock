@@ -1,4 +1,4 @@
 {
 	"domain": chance.domain(),
-	"ip": @import './tests/data/ip.json'
+	"ip": @import "./tests/data/ip.json"
 }

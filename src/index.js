@@ -7,7 +7,7 @@ const faker = require('faker'),
 	util = require('util'),
 	_ = require('underscore')
 
-const atImport = '@import'
+const atImportReg = /:\s*(@import)\s+("([\w\W]*)"|'([\w\W]*)')/im
 
 function mock(file, options) {
 	let jsonData, jsonObject = {
@@ -15,12 +15,20 @@ function mock(file, options) {
 		chance: new Chance()
 	}
 
-	invariant(path.extname(file) === '.json', 'file must be a .json.')
-	invariant(fs.existsSync(file), 'file not found.')
+	invariant(path.extname(file) === '.json', 'file %s must be a .json.', file)
+	invariant(fs.existsSync(file), 'file %s not found.', file)
 
 	jsonData = fs.readFileSync(file, {
 		encoding: 'utf8'
 	})
+
+	let matches = jsonData.match(atImportReg)
+
+	if (matches && matches.length > 3) {
+		let importPatial = matches[3]
+		invariant(path.extname(importPatial) === '.json', '@import file %s must be a .json.', importPatial)
+		invariant(fs.existsSync(importPatial), '@import file %s not found.', importPatial)
+	}
 
 	let script = new vm.Script('data = ' + jsonData);
 
