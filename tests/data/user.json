@@ -1,4 +1,4 @@
-[{
+{
 	"name": chance.name(),
 	"age": chance.age(),
 	"cf": chance.cf(),
@@ -7,6 +7,9 @@
 		"address": chance.address(),
 		"country": chance.country(),
 		"phone": chance.phone(),
-		"city": faker.address.faker()
+		"city": faker.address.city(),
+		"streetName": (() => {
+			return faker.address.streetName()
+		})()
 	}
-}]
+}
