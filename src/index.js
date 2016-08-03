@@ -7,6 +7,8 @@ const faker = require('faker'),
 	util = require('util'),
 	_ = require('underscore')
 
+const atImport = '@import'
+
 function mock(file, options) {
 	let jsonData, jsonObject = {
 		faker: faker,
@@ -23,7 +25,7 @@ function mock(file, options) {
 	let script = new vm.Script('data = ' + jsonData);
 
 	if (!_.isUndefined(options) && !_.isUndefined(options.length)) {
-		invariant(_.isNumber(options.length) && options.length > 0, 'options.length must be a number and must > 0.')
+		invariant(_.isNumber(options.length) && options.length > 0, 'options.length must be a number and > 0.')
 		let sandboxes = []
 		for (let i = 0; i < options.length; i++) {
 			sandboxes.push(_.clone(jsonObject))

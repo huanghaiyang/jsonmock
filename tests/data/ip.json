@@ -1,0 +1,4 @@
+{
+	"ipv4": chance.ip(),
+	"ipv6": chance.ipv6() 
+}
