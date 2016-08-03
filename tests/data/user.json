@@ -1,0 +1,12 @@
+[{
+	"name": chance.name(),
+	"age": chance.age(),
+	"cf": chance.cf(),
+	"birthday": chance.birthday(),
+	"location": {
+		"address": chance.address(),
+		"country": chance.country(),
+		"phone": chance.phone(),
+		"city": faker.address.faker()
+	}
+}]

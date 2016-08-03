@@ -1,0 +1,28 @@
+{
+  "name": "jsonmock",
+  "version": "1.0.0",
+  "description": "json mock ",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huanghaiyang/jsonmock.git"
+  },
+  "keywords": [
+    "json",
+    "mock"
+  ],
+  "author": "huanghaiyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huanghaiyang/jsonmock/issues"
+  },
+  "homepage": "https://github.com/huanghaiyang/jsonmock#readme",
+  "dependencies": {
+    "chance": "^1.0.4",
+    "faker": "^3.1.0",
+    "invariant": "^2.2.1"
+  }
+}
