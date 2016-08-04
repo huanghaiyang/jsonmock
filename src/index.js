@@ -28,6 +28,7 @@ function mock(file, options) {
 		let importPatial = matches[3]
 		invariant(path.extname(importPatial) === '.json', '@import file %s must be a .json.', importPatial)
 		invariant(fs.existsSync(importPatial), '@import file %s not found.', importPatial)
+		jsonData = jsonData.replace(atImportReg, ':' + fs.readFileSync(importPatial))
 	}
 
 	let script = new vm.Script('data = ' + jsonData);

@@ -53,4 +53,21 @@ var users = jsonmock('./tests/data/user.json', {
 })
 assert.equal(users.length, 10)
 ```
+user ```@import``` to include another ```.json```, let's watch ```web.json```
+
+```json
+{
+	"domain": chance.domain(),
+	"ip": @import "./tests/data/ip.json"
+}
+```
+ip.json
+```
+{
+	"ipv4": chance.ip(),
+	"ipv6": chance.ipv6() 
+}
+```
+<font color=red>remeber, it does not support recursive ```@import``` in ```ip.json```</font>
+
 you may use jsonmock to mock paganition...
